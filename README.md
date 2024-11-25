@@ -1,4 +1,4 @@
-# Gestura App
+# C242-PS564 - Bangkit 2024 Capstone Team Project (Gestura)
 
 This project seeks to address the communication gap that disabled individuals face due to limited public understanding of sign language. Sign language conveyed through specific gestures of the hands, head, and body, enables disabled individuals to communicate effectively. However, those unfamiliar with it often struggle to interpret these gestures, leading to frequent misunderstandings and social isolation. Our team recognizes this barrier as a significant issue, particularly in educational and social environments, where accessible communication is essential.
 
