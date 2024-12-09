@@ -7,8 +7,8 @@ import retrofit2.http.Part
 
 interface ApiService {
     @Multipart
-    @POST("upload")
+    @POST("upload-video")
     suspend fun uploadVideo(
-        @Part video: MultipartBody.Part
+        @Part file: MultipartBody.Part
     ): TranslateResponse
 }

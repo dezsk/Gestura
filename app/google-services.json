@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "727813629580",
+    "project_id": "gestura-95bac",
+    "storage_bucket": "gestura-95bac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727813629580:android:198699f4cd021d02903da9",
+        "android_client_info": {
+          "package_name": "com.fadhly.gestura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727813629580-f9ct563j02fs5k6bd3rbvgonor0ofrq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fadhly.gestura",
+            "certificate_hash": "1966a66de8ec7703a44ddc80c1b6e7f028bd837f"
+          }
+        },
+        {
+          "client_id": "727813629580-pipvrku9iafj6pcuff70pskm4hlaf3ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCujvw9wJvge2VzI_5gPy75QeFeYwdiWEw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727813629580-pipvrku9iafj6pcuff70pskm4hlaf3ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

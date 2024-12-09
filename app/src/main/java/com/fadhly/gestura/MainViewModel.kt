@@ -5,11 +5,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-class MainViewModel(private val repository: TranslateRepository): ViewModel() {
+class MainViewModel(private val repository: TranslateRepository) : ViewModel() {
 
     private val TAG = "VideoViewModel"
-
+    lateinit var currentVideoFile: File
     private val _uploadResult = MediatorLiveData<Result<TranslateResponse>>()
     val uploadResult: LiveData<Result<TranslateResponse>> get() = _uploadResult
 
@@ -20,5 +23,10 @@ class MainViewModel(private val repository: TranslateRepository): ViewModel() {
         _uploadResult.addSource(liveData) {
             _uploadResult.value = it
         }
+    }
+
+    fun createVideoFile(storageDir: File?) {
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        currentVideoFile = File.createTempFile("VIDEO_${timeStamp}_", ".mp4", storageDir)
     }
 }

@@ -1,7 +1,6 @@
 package com.fadhly.gestura
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
-import android.Manifest.permission.WRITE_EXTERNAL_STORAGE
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -9,7 +8,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -45,40 +43,49 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         responseTextView = findViewById(R.id.responseTextView)
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            if (!Environment.isExternalStorageManager()) {
-                val intent = Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION)
-                intent.data = Uri.parse("package:$packageName")
-                startActivity(intent)
-            }
-        } else {
-            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(
                     this,
-                    arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                    arrayOf(android.Manifest.permission.READ_MEDIA_VIDEO),
+                    REQUEST_PERMISSIONS
+                )
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(READ_EXTERNAL_STORAGE),
                     REQUEST_PERMISSIONS
                 )
             }
         }
 
 
+
         setupObservers()
 
         // Check for permissions
-        if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        val permissions = mutableListOf<String>()
 
-            // Request permissions
-            Log.d(TAG, "onCreate: Permissions not granted, requesting permissions")
-            ActivityCompat.requestPermissions(this,
-                arrayOf(READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, android.Manifest.permission.CAMERA),
-                REQUEST_PERMISSIONS
-            )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13+
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(android.Manifest.permission.READ_MEDIA_VIDEO)
+            }
         } else {
-            // Permissions already granted, proceed with video capture logic
-            Log.d(TAG, "onCreate: Permissions already granted")
-            setupAction()
+            if (ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(READ_EXTERNAL_STORAGE)
+            }
+        }
+
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            permissions.add(android.Manifest.permission.CAMERA)
+        }
+
+        if (permissions.isNotEmpty()) {
+            ActivityCompat.requestPermissions(this, permissions.toTypedArray(), REQUEST_PERMISSIONS)
+        } else {
+            setupAction() // Permissions already granted
         }
 
     }

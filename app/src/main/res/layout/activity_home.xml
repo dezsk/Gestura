@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    style="@style/groupStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/CustomShapeAppearance" />
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:fontFamily="@font/inter"
+        android:text="Welcome Back"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/iv_avatar"
+        app:layout_constraintTop_toTopOf="@id/iv_avatar" />
+
+    <TextView
+        android:id="@+id/tv_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/interbold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome"
+        tools:text="User" />
+
+
+    <TextView
+        android:id="@+id/tv_welcome_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/intersemibold"
+        android:text="Welcome to"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_user" />
+
+    <TextView
+        android:id="@+id/tv_gestura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:fontFamily="@font/interbold"
+        android:text="Gestura"
+        android:textColor="@color/black"
+        android:textSize="55sp"
+        app:layout_constraintStart_toStartOf="@id/tv_welcome_to"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/what_is"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/interbold"
+        android:text="What is Gestura?"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/tv_gestura"
+        app:layout_constraintTop_toBottomOf="@id/tv_gestura" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="A Sign Language Interpreter Application for learning and translating sign language. Helps to raise awareness of sign language knowledge for communicating with deaf individuals."
+        app:layout_constraintStart_toStartOf="@id/what_is"
+        app:layout_constraintTop_toBottomOf="@id/what_is" />
+
+    <TextView
+        android:id="@+id/tv_feature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/interbold"
+        android:text="Our Features?"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@id/tv_desc"
+        app:layout_constraintTop_toBottomOf="@id/tv_desc" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_feature">
+
+        <TextView
+            android:id="@+id/camera"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/rectangle_bg_white_a700_radius_43"
+            android:elevation="8dp"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="Sign Language to Text Translator" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/rectangle_bg_white_a700_radius_43"
+            android:elevation="8dp"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="Sign Language to Text Translator" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/rectangle_bg_white_a700_radius_43"
+            android:elevation="8dp"
+            android:fontFamily="@font/intersemibold"
+            android:gravity="center"
+            android:padding="20dp"
+            android:layout_marginHorizontal="10dp"
+            android:text="Sign Language to Text Translator" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

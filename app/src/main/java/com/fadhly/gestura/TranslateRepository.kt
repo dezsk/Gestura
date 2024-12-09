@@ -19,7 +19,7 @@ class TranslateRepository(private val apiService: ApiService) {
             emit(Result.Loading)
             try {
                 val requestBody = videoFile.asRequestBody("video/mp4".toMediaType())
-                val multipart = MultipartBody.Part.createFormData("video", videoFile.name, requestBody)
+                val multipart = MultipartBody.Part.createFormData("file", videoFile.name, requestBody)
                 val response = apiService.uploadVideo(multipart)
 
                 Log.d(TAG, "uploadVideo: Server response received: $response")
