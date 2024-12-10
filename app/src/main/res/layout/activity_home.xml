@@ -132,9 +132,10 @@
             android:gravity="center"
             android:padding="20dp"
             android:layout_marginHorizontal="10dp"
-            android:text="Sign Language to Text Translator" />
+            android:text="Text to Sign Language Translator" />
 
         <TextView
+            android:id="@+id/tv_dictionary"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:background="@drawable/rectangle_bg_white_a700_radius_43"
@@ -143,7 +144,7 @@
             android:gravity="center"
             android:padding="20dp"
             android:layout_marginHorizontal="10dp"
-            android:text="Sign Language to Text Translator" />
+            android:text="Sign Language Dictionary" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

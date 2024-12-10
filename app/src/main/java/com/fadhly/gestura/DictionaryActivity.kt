@@ -1,18 +1,18 @@
 package com.fadhly.gestura
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fadhly.gestura.databinding.ActivityHomeBinding
+import androidx.recyclerview.widget.GridLayoutManager
+import com.fadhly.gestura.databinding.ActivityDictionaryBinding
 
-class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeBinding
+class DictionaryActivity : AppCompatActivity() {
+private lateinit var binding: ActivityDictionaryBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityDictionaryBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -20,15 +20,15 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        binding.camera.setOnClickListener {
-            val intent = Intent(this, SignToText1Activity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        binding.tvDictionary.setOnClickListener {
-            val intent = Intent(this, DictionaryActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+
+        setRecyclerView()
+    }
+
+    private fun setRecyclerView() {
+        val adapter = SignLanguageAdapter()
+        binding.rvSign.layoutManager = GridLayoutManager(this, 3)
+        binding.rvSign.adapter = adapter
+
+        adapter.addSignList(SignLanguages.signLanguageList)
     }
 }

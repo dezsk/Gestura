@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/two_boys"
-    tools:context=".OnBoarding3Activity">
+    tools:context=".ui.onBoard.OnBoarding3Activity">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000" />
+        android:background="@drawable/shadow_gradient" />
 
     <TextView
         android:layout_width="match_parent"

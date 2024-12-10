@@ -11,7 +11,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rectangle_gradient_s_teal_300_e_white_a700_00" />
+        android:background="@drawable/teal_white_gradient" />
 
     <TextView
         android:id="@+id/tv_title"

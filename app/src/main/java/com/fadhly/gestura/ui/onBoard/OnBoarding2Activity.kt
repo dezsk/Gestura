@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.onBoard
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,13 +6,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fadhly.gestura.databinding.ActivityOnBoarding1Binding
+import com.fadhly.gestura.R
+import com.fadhly.gestura.databinding.ActivityOnBoarding2Binding
 
-class OnBoarding1Activity : AppCompatActivity() {
-    private lateinit var binding: ActivityOnBoarding1Binding
+class OnBoarding2Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityOnBoarding2Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOnBoarding1Binding.inflate(layoutInflater)
+        binding = ActivityOnBoarding2Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -21,8 +22,8 @@ class OnBoarding1Activity : AppCompatActivity() {
             insets
         }
 
-        binding.pt2.setOnClickListener {
-            val intent = Intent(this, OnBoarding2Activity::class.java)
+        binding.pt1.setOnClickListener {
+            val intent = Intent(this, OnBoarding1Activity::class.java)
             startActivity(intent)
         }
 
@@ -37,8 +38,13 @@ class OnBoarding1Activity : AppCompatActivity() {
         }
 
         binding.viewNext.setOnClickListener {
-            val intent = Intent(this, OnBoarding2Activity::class.java)
+            val intent = Intent(this, OnBoarding3Activity::class.java)
             startActivity(intent)
         }
+        binding.viewBack.setOnClickListener {
+            val intent = Intent(this, OnBoarding1Activity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

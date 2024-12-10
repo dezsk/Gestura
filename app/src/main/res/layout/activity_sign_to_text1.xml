@@ -11,7 +11,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/rectangle_gradient_s_teal_300_e_white_a700_00" />
+        android:background="@drawable/teal_white_gradient" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -109,5 +109,37 @@
             android:src="@drawable/arrow"
             app:tint="@color/white_A700"
             android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/arrow_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginEnd="10dp"
+            android:scaleX="-1"
+            android:src="@drawable/arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white_A700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="Back"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

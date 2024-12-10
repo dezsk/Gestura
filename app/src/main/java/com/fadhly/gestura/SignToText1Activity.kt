@@ -34,5 +34,10 @@ class SignToText1Activity : AppCompatActivity() {
             val intent = Intent(this, SignToText2Activity::class.java)
             startActivity(intent)
         }
+
+        binding.viewBack.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

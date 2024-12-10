@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/children_hand"
-    tools:context=".OnBoarding4Activity">
+    tools:context=".ui.onBoard.OnBoarding4Activity">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#80000000" />
+        android:background="@drawable/shadow_gradient" />
 
     <TextView
         android:layout_width="match_parent"

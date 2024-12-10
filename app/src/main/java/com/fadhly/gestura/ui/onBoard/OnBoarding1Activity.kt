@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.onBoard
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,14 +6,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fadhly.gestura.databinding.ActivityOnBoarding2Binding
-import com.fadhly.gestura.databinding.ActivityOnBoarding3Binding
+import com.fadhly.gestura.R
+import com.fadhly.gestura.WelcomeActivity
+import com.fadhly.gestura.databinding.ActivityOnBoarding1Binding
 
-class OnBoarding3Activity : AppCompatActivity() {
-    private lateinit var binding: ActivityOnBoarding3Binding
+class OnBoarding1Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityOnBoarding1Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOnBoarding3Binding.inflate(layoutInflater)
+        binding = ActivityOnBoarding1Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -22,13 +23,13 @@ class OnBoarding3Activity : AppCompatActivity() {
             insets
         }
 
-        binding.pt1.setOnClickListener {
-            val intent = Intent(this, OnBoarding1Activity::class.java)
+        binding.pt2.setOnClickListener {
+            val intent = Intent(this, OnBoarding2Activity::class.java)
             startActivity(intent)
         }
 
-        binding.pt2.setOnClickListener {
-            val intent = Intent(this, OnBoarding2Activity::class.java)
+        binding.pt3.setOnClickListener {
+            val intent = Intent(this, OnBoarding3Activity::class.java)
             startActivity(intent)
         }
 
@@ -38,12 +39,12 @@ class OnBoarding3Activity : AppCompatActivity() {
         }
 
         binding.viewNext.setOnClickListener {
-            val intent = Intent(this, OnBoarding4Activity::class.java)
+            val intent = Intent(this, OnBoarding2Activity::class.java)
             startActivity(intent)
         }
 
         binding.viewBack.setOnClickListener {
-            val intent = Intent(this, OnBoarding2Activity::class.java)
+            val intent = Intent(this, WelcomeActivity::class.java)
             startActivity(intent)
         }
     }
