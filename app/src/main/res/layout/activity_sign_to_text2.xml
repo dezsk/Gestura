@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/three_boys"
-    tools:context=".SignToText2Activity">
+    tools:context=".ui.signToText.SignToText2Activity">
 
     <View
         android:layout_width="match_parent"

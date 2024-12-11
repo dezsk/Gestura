@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
-import com.fadhly.gestura.WelcomeActivity
+import com.fadhly.gestura.ui.welcome.WelcomeActivity
 import com.fadhly.gestura.databinding.ActivityOnBoarding1Binding
 
 class OnBoarding1Activity : AppCompatActivity() {

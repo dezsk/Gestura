@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
-import com.fadhly.gestura.SignInActivity
+import com.fadhly.gestura.ui.signin.SignInActivity
 import com.fadhly.gestura.databinding.ActivityOnBoarding4Binding
 
 class OnBoarding4Activity : AppCompatActivity() {

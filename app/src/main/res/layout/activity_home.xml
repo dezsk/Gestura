@@ -6,7 +6,7 @@
     style="@style/groupStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".ui.home.HomeActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_avatar"
@@ -147,4 +147,14 @@
             android:text="Sign Language Dictionary" />
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/btnLogout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Logout"
+        android:layout_margin="20dp"
+        style="@style/btnSolidRounded"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.data.local
 
 data class SignDataClass(
     var letter: String,

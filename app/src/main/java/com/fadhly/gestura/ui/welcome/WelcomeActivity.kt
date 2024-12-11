@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.welcome
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivityWelcomeBinding
 import com.fadhly.gestura.ui.onBoard.OnBoarding1Activity
 

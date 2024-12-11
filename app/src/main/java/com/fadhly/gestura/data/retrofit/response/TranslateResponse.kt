@@ -1,6 +1,5 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.data.retrofit.response
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 data class TranslateResponse(

@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.result
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -9,8 +9,6 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.provider.Settings
 import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -19,45 +17,50 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fadhly.gestura.databinding.ActivitySignToText3Binding
+import com.fadhly.gestura.R
+import com.fadhly.gestura.data.Result
+import com.fadhly.gestura.databinding.ActivityTextResultBinding
+import com.fadhly.gestura.ui.ViewModelFactory
+import com.fadhly.gestura.ui.home.HomeActivity
+import com.fadhly.gestura.ui.signToText.MainViewModel
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class SignToText3Activity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySignToText3Binding
+class TextResultActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityTextResultBinding
+    private val REQUEST_PERMISSIONS = 1
+    private val REQUEST_VIDEO_CAPTURE = 2
+    private lateinit var videoFile: File
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
     }
 
-    private val REQUEST_PERMISSIONS = 1
-    private val REQUEST_VIDEO_CAPTURE = 2
-    private val TAG = "MainActivity"
-    private lateinit var videoFile: File
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignToText3Binding.inflate(layoutInflater)
+        binding = ActivityTextResultBinding.inflate(layoutInflater)
+        enableEdgeToEdge()
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         checkAndRequestPermissions()
         setupObservers()
 
-        binding.pt1.setOnClickListener {
-            val intent = Intent(this, SignToText1Activity::class.java)
-            startActivity(intent)
-        }
+        // Retrieve and display the translated text
+        val translatedText = intent.getStringExtra("TRANSLATED_TEXT")
+        binding.tvResult.text = translatedText ?: "No translation available"
 
-        binding.viewBack.setOnClickListener {
-            val intent = Intent(this, SignToText2Activity::class.java)
-            startActivity(intent)
-        }
+        setupAction()
 
-        binding.pt2.setOnClickListener {
-            val intent = Intent(this, SignToText2Activity::class.java)
+        binding.btnHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 
@@ -89,12 +92,6 @@ class SignToText3Activity : AppCompatActivity() {
             setupAction()
         } else {
             Toast.makeText(this, "Permissions are required to proceed", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun setupAction() {
-        binding.viewNext.setOnClickListener {
-            recordVideo()
         }
     }
 
@@ -147,15 +144,14 @@ class SignToText3Activity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.uploadResult.observe(this) { result ->
             when (result) {
-                is Result.Loading -> binding.progressBar.visibility = View.VISIBLE
+                is Result.Loading -> binding.tvResult.text = "Translating..."
                 is Result.Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    val translatedText = result.data.translateResult?.text
+                    val translatedText = result.data.hasilPrediksi
                     navigateToResultActivity(translatedText)
                 }
 
                 is Result.Error -> {
-                    binding.progressBar.visibility = View.GONE
+                    binding.tvResult.text = "An error ocurred: ${result.error}"
                     Toast.makeText(this, "Upload Failed: ${result.error}", Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -168,5 +164,11 @@ class SignToText3Activity : AppCompatActivity() {
             putExtra("TRANSLATED_TEXT", translatedText)
         }
         startActivity(intent)
+    }
+
+    private fun setupAction() {
+        binding.btnAgain.setOnClickListener {
+            recordVideo()
+        }
     }
 }

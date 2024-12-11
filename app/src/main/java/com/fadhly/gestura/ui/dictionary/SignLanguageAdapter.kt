@@ -1,10 +1,11 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.dictionary
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.fadhly.gestura.data.local.SignDataClass
 import com.fadhly.gestura.databinding.SignItemBinding
 
 class SignLanguageAdapter : RecyclerView.Adapter<SignLanguageAdapter.SignViewHolder>() {
@@ -37,7 +38,7 @@ class SignLanguageAdapter : RecyclerView.Adapter<SignLanguageAdapter.SignViewHol
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SignLanguageAdapter.SignViewHolder {
+    ): SignViewHolder {
         return SignViewHolder(
             SignItemBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -47,7 +48,7 @@ class SignLanguageAdapter : RecyclerView.Adapter<SignLanguageAdapter.SignViewHol
         )
     }
 
-    override fun onBindViewHolder(holder: SignLanguageAdapter.SignViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: SignViewHolder, position: Int) {
         holder.bind(position)
     }
 

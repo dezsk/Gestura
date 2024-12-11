@@ -1,9 +1,13 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.signToText
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
+import com.fadhly.gestura.data.Result
+import com.fadhly.gestura.data.TranslateRepository
+import com.fadhly.gestura.data.retrofit.response.TranslateResponse
+import com.fadhly.gestura.data.retrofit.response.TranslatedResponse
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -13,8 +17,8 @@ class MainViewModel(private val repository: TranslateRepository) : ViewModel() {
 
     private val TAG = "VideoViewModel"
     lateinit var currentVideoFile: File
-    private val _uploadResult = MediatorLiveData<Result<TranslateResponse>>()
-    val uploadResult: LiveData<Result<TranslateResponse>> get() = _uploadResult
+    private val _uploadResult = MediatorLiveData<Result<TranslatedResponse>>()
+    val uploadResult: LiveData<Result<TranslatedResponse>> get() = _uploadResult
 
     fun uploadVideo(videoFile: File) {
         Log.d(TAG, "uploadVideo: Uploading video from ViewModel")

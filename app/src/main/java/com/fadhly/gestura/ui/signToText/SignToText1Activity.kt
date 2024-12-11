@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.signToText
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,14 +6,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.fadhly.gestura.databinding.ActivitySignToText2Binding
-import com.fadhly.gestura.databinding.ActivitySignToText3Binding
+import com.fadhly.gestura.R
+import com.fadhly.gestura.databinding.ActivitySignToText1Binding
+import com.fadhly.gestura.ui.home.HomeActivity
 
-class SignToText2Activity : AppCompatActivity() {
-    private lateinit var binding: ActivitySignToText2Binding
+class SignToText1Activity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignToText1Binding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignToText2Binding.inflate(layoutInflater)
+        binding = ActivitySignToText1Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -21,9 +22,8 @@ class SignToText2Activity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        binding.pt1.setOnClickListener {
-            val intent = Intent(this, SignToText1Activity::class.java)
+        binding.pt2.setOnClickListener {
+            val intent = Intent(this, SignToText2Activity::class.java)
             startActivity(intent)
         }
 
@@ -33,14 +33,13 @@ class SignToText2Activity : AppCompatActivity() {
         }
 
         binding.viewNext.setOnClickListener {
-            val intent = Intent(this, SignToText3Activity::class.java)
+            val intent = Intent(this, SignToText2Activity::class.java)
             startActivity(intent)
         }
 
         binding.viewBack.setOnClickListener {
-            val intent = Intent(this, SignToText1Activity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
-
     }
 }

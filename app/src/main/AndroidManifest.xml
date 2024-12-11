@@ -25,7 +25,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DictionaryActivity"
+            android:name=".ui.home.HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.dictionary.DictionaryActivity"
             android:exported="false" />
 
         <provider
@@ -39,22 +42,22 @@
         </provider>
 
         <activity
-            android:name=".TextResultActivity"
+            android:name=".ui.result.TextResultActivity"
             android:exported="false" />
         <activity
-            android:name=".TextToSignActivity"
+            android:name=".ui.textToSign.TextToSignActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".ui.welcome.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignToText2Activity"
+            android:name=".ui.signToText.SignToText2Activity"
             android:exported="false" />
         <activity
-            android:name=".SignToText1Activity"
+            android:name=".ui.signToText.SignToText1Activity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".ui.signin.SignInActivity"
             android:exported="false" />
         <activity
             android:name=".ui.onBoard.OnBoarding4Activity"
@@ -69,13 +72,13 @@
             android:name=".ui.onBoard.OnBoarding1Activity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".SignToText3Activity"
+            android:name=".ui.signToText.SignToText3Activity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui.dictionary
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.fadhly.gestura.R
+import com.fadhly.gestura.data.local.SignLanguages
 import com.fadhly.gestura.databinding.ActivityDictionaryBinding
 
 class DictionaryActivity : AppCompatActivity() {

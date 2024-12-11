@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.data
 
 sealed class Result<out R> private constructor(){
     data class Success<out T>(val data: T): Result<T>()

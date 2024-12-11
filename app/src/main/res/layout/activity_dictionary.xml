@@ -6,7 +6,7 @@
     style="@style/groupStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DictionaryActivity">
+    tools:context=".ui.dictionary.DictionaryActivity">
 
     <TextView
         android:id="@+id/tv_title"

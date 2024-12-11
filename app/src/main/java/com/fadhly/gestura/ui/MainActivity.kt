@@ -1,4 +1,4 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui
 
 import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.content.Intent
@@ -18,6 +18,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.fadhly.gestura.ui.signToText.MainViewModel
+import com.fadhly.gestura.R
+import com.fadhly.gestura.data.Result
 import java.io.File
 
 
@@ -172,7 +175,7 @@ class MainActivity : AppCompatActivity() {
                 is Result.Success -> {
                     // Hide progress bar and show server response
                     progressBar.visibility = View.GONE
-                    responseTextView.text = "Upload Successful: ${result.data.translateResult?.text}"
+                    responseTextView.text = "Upload Successful: ${result.data.hasilPrediksi}"
                 }
                 is Result.Error -> {
                     // Hide progress bar and show error message

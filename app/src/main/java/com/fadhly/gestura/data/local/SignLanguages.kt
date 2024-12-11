@@ -1,4 +1,6 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.data.local
+
+import com.fadhly.gestura.R
 
 object SignLanguages {
     val signLanguageList = listOf(

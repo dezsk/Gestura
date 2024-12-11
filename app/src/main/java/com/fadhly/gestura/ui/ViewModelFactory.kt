@@ -1,8 +1,13 @@
-package com.fadhly.gestura
+package com.fadhly.gestura.ui
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.fadhly.gestura.data.Injection
+import com.fadhly.gestura.data.TranslateRepository
+import com.fadhly.gestura.ui.signToText.MainViewModel
+import com.fadhly.gestura.ui.textToSign.TextToSignViewModel
+
 class ViewModelFactory(private val repository: TranslateRepository) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -10,6 +15,9 @@ class ViewModelFactory(private val repository: TranslateRepository) : ViewModelP
         return when {
             modelClass.isAssignableFrom(MainViewModel::class.java) -> {
                 MainViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(TextToSignViewModel::class.java) -> {
+                TextToSignViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
