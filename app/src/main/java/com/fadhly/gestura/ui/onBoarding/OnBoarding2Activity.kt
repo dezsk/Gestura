@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivityOnBoarding2Binding
 import com.fadhly.gestura.ui.Page
+import com.fadhly.gestura.ui.home.HomeActivity
 import com.fadhly.gestura.ui.result.TextResultActivity
 import com.fadhly.gestura.ui.signin.SignInActivity
 import com.google.android.material.tabs.TabLayoutMediator
@@ -23,7 +24,7 @@ class OnBoarding2Activity : AppCompatActivity() {
             super.onPageSelected(position)
             when (position) {
                 0 -> {
-                    binding.viewBack.visibility = View.GONE
+                    binding.viewBack.visibility = View.VISIBLE
                     binding.viewNext.visibility = View.VISIBLE
                     binding.tvNext.text = "Next"
                 }
@@ -99,6 +100,9 @@ class OnBoarding2Activity : AppCompatActivity() {
         binding.viewBack.setOnClickListener {
             if (binding.vpOnboarding.currentItem > 0) {
                 binding.vpOnboarding.currentItem -= 1
+            } else {
+                onBackPressed()
+                finish()
             }
         }
     }

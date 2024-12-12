@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/navigation_text_to_sign"
+        android:title="Text to Sign" />
+    <item
+        android:id="@+id/navigation_sign_to_text"
+        android:title="Sign to Text" />
+    <item
+        android:id="@+id/navigation_dictionary"
+        android:title="Dictionary" />
+</menu>

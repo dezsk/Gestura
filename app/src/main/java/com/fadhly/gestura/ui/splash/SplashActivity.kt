@@ -32,17 +32,17 @@ class SplashActivity : AppCompatActivity() {
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            // Check user login status
-            val auth = FirebaseAuth.getInstance()
-            if (auth.currentUser != null) {
+            val sharedPref = getSharedPreferences("app_preferences", MODE_PRIVATE)
+            val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
+
+            if (isLoggedIn) {
                 // Navigate to HomeActivity
-                startActivity(Intent(this, OnBoardingActivity::class.java))
+                startActivity(Intent(this, HomeActivity::class.java))
             } else {
                 // Navigate to WelcomeActivity
                 startActivity(Intent(this, WelcomeActivity::class.java))
             }
             finish() // Close SplashActivity
-
         }, 2000)
     }
 

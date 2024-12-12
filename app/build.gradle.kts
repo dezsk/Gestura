@@ -71,4 +71,10 @@ dependencies {
     // Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
+    implementation("com.google.android.material:material:1.9.0")
+
+    implementation (libs.material.v180) // for BottomNavigationView
+    implementation (libs.androidx.navigation.fragment.ktx) // for Navigation components
+    implementation (libs.androidx.navigation.ui.ktx) // for Navigation UI components
+
 }

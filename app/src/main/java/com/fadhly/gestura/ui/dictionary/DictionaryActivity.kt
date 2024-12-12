@@ -1,6 +1,8 @@
 package com.fadhly.gestura.ui.dictionary
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.Toolbar
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,6 +25,12 @@ private lateinit var binding: ActivityDictionaryBinding
             insets
         }
 
+        val toolbar = binding.toolbar
+        setSupportActionBar(toolbar)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         setRecyclerView()
     }
 
@@ -32,5 +40,13 @@ private lateinit var binding: ActivityDictionaryBinding
         binding.rvSign.adapter = adapter
 
         adapter.addSignList(SignLanguages.signLanguageList)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

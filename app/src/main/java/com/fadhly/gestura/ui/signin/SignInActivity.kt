@@ -86,6 +86,7 @@ class SignInActivity : AppCompatActivity() {
                     // Sign-in successful
                     val user = auth.currentUser
                     Log.d("SignInActivity", "signInWithCredential:success - User: ${user?.displayName}")
+                    saveLoginState(true)  // Save login state
                     navigateToHome()
                 } else {
                     // If sign-in fails, display a message to the user
@@ -93,6 +94,14 @@ class SignInActivity : AppCompatActivity() {
                     Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun saveLoginState(isLoggedIn: Boolean) {
+        val sharedPref = getSharedPreferences("app_preferences", MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putBoolean("isLoggedIn", isLoggedIn)
+            apply()
+        }
     }
 
     private fun navigateToHome() {
