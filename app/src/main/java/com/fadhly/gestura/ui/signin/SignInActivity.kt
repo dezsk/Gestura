@@ -59,8 +59,12 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun signInWithGoogle() {
-        val signInIntent = googleSignClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        // Sign out the previously signed-in account (if any)
+        googleSignClient.signOut().addOnCompleteListener {
+            // Start the sign-in process
+            val signInIntent = googleSignClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
     }
 
     @Deprecated("Deprecated in Java")

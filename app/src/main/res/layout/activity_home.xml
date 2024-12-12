@@ -159,14 +159,4 @@
         android:layout_margin="20dp"
         style="@style/btnSolidRounded"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_nav_menu"
-        android:background="@color/teal_300_7f"
-        app:itemTextColor="@color/bottom_nav_text_color"
-        app:itemBackground="@drawable/bottom_nav_background"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

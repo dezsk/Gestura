@@ -52,7 +52,7 @@ class TextResultActivity : AppCompatActivity() {
 
         // Retrieve and display the translated text
         val translatedText = intent.getStringExtra("TRANSLATED_TEXT")
-        binding.tvResult.text = translatedText ?: "No translation available"
+        binding.tvResult.text = translatedText ?: "Press the translate button"
 
         setupAction()
 

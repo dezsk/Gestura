@@ -77,4 +77,6 @@ dependencies {
     implementation (libs.androidx.navigation.fragment.ktx) // for Navigation components
     implementation (libs.androidx.navigation.ui.ktx) // for Navigation UI components
 
+    implementation (libs.ffmpeg.kit.full)
+
 }

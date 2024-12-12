@@ -5,6 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.splash.SplashActivity">
+    tools:context=".ui.splash.SplashActivity"
+    android:background="@drawable/rectangle_gradient_s_teal_300_e_white_a700_00">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gesturalogo"
+        android:layout_margin="100dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

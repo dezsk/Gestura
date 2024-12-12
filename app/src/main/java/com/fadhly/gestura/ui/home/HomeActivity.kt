@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivityHomeBinding
 import com.fadhly.gestura.ui.dictionary.DictionaryActivity
@@ -49,7 +50,16 @@ class HomeActivity : AppCompatActivity() {
 
         if (user !== null) {
             val username = user.displayName
+            val photo = user.photoUrl
+
             binding.tvUser.text = username
+
+            Glide
+                .with(this)
+                .load(photo)
+                .fitCenter()
+                .into(binding.ivAvatar)
+
         } else {
             binding.tvUser.text = "Guest"
         }
@@ -59,34 +69,6 @@ class HomeActivity : AppCompatActivity() {
             saveLoginState(false)  // Clear login state
             startActivity(Intent(this, SignInActivity::class.java))
             finish()
-        }
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        bottomNavigationView.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_home -> {
-                    // Handle Home navigation
-                    true
-                }
-
-                R.id.navigation_text_to_sign -> {
-                    // Handle Text to Sign navigation
-                    startActivity(Intent(this, TextToSignActivity::class.java))
-                    true
-                }
-
-                R.id.navigation_sign_to_text -> {
-                    // Handle Sign to Text navigation
-                    startActivity(Intent(this, OnBoarding2Activity::class.java))
-                    true
-                }
-
-                R.id.navigation_dictionary -> {
-                    startActivity(Intent(this, DictionaryActivity::class.java))
-                    true
-                }
-
-                else -> false
-            }
         }
     }
 
