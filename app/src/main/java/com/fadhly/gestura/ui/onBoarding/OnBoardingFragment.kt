@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.fadhly.gestura.R
 import com.fadhly.gestura.ui.Page
 
@@ -26,7 +27,13 @@ class OnBoardingFragment(val page: Page) : Fragment() {
 
         tvTitle.text = page.title
         tvDesc.text = page.description
-        ivBackground.setImageResource(page.image)
+
+        Glide
+            .with(this)
+            .load(page.image)
+            .fitCenter()
+            .into(ivBackground)
+
         return view
     }
 

@@ -2,7 +2,6 @@ package com.fadhly.gestura.ui.home
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,8 +13,6 @@ import com.fadhly.gestura.ui.dictionary.DictionaryActivity
 import com.fadhly.gestura.ui.onBoarding.OnBoarding2Activity
 import com.fadhly.gestura.ui.signin.SignInActivity
 import com.fadhly.gestura.ui.textToSign.TextToSignActivity
-import com.fadhly.gestura.ui.welcome.WelcomeActivity
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeActivity : AppCompatActivity() {

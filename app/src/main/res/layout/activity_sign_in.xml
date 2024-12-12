@@ -8,34 +8,19 @@
     android:layout_height="match_parent"
     tools:context=".ui.signin.SignInActivity">
 
-    <TextView
-        android:id="@+id/tv_welcome_to"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="120dp"
-        android:fontFamily="@font/intersemibold"
-        android:gravity="center_horizontal"
-        android:text="Sign In to"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_google"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/gesturalogo"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/interextrabold"
-        android:gravity="center"
-        android:padding="0dp"
-        android:text="Gestura"
-        android:textColor="@color/black"
-        android:textSize="70sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.gms.common.SignInButton
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="Sign In with Google"
         android:id="@+id/btn_google"
+        android:background="@drawable/rectangle_bg_teal_300_radius_24"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="250dp"
@@ -49,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
         android:text="Continue as Guest"
-        app:icon="@drawable/google"
+        android:background="@drawable/rectangle_bg_grey_300_radius_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

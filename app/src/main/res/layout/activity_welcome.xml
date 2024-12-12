@@ -8,31 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.welcome.WelcomeActivity">
 
-    <TextView
-        android:id="@+id/tv_welcome_to"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:fontFamily="@font/intersemibold"
-        android:gravity="center_horizontal"
-        android:text="Welcome to"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:fontFamily="@font/interextrabold"
-        android:gravity="center"
-        android:padding="0dp"
-        android:text="Gestura"
-        android:textColor="@color/black"
-        android:textSize="70sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="200dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/gesturalogo"/>
 
     <androidx.appcompat.widget.AppCompatButton
         style="@style/btnSolidRounded_1"

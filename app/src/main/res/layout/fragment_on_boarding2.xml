@@ -9,14 +9,43 @@
     android:background="@color/black">
 
     <ImageView
+        android:id="@+id/frag_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frag_background"/>
+        android:scaleType="centerCrop"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shadow_gradient"/>
+        android:background="@drawable/teal_white_gradient"/>
+
+
+    <TextView
+        android:id="@+id/tv_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:fontFamily="@font/interextrabold"
+        android:paddingHorizontal="40dp"
+        android:text="Sign Language to Text"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="250dp"
+        android:fontFamily="@font/inter"
+        android:paddingHorizontal="40dp"
+        android:text="Translator"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_head"/>
+
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

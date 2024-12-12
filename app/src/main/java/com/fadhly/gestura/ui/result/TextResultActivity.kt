@@ -149,7 +149,10 @@ class TextResultActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.uploadResult.observe(this) { result ->
             when (result) {
-                is Result.Loading -> binding.progressBar.visibility = View.VISIBLE
+                is Result.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.tvResult.text = "Translating..."
+                }
                 is Result.Success -> {
                     val translatedText = result.data.hasilPrediksi
                     binding.progressBar.visibility = View.GONE
@@ -159,6 +162,7 @@ class TextResultActivity : AppCompatActivity() {
 
                 is Result.Error -> {
                     binding.progressBar.visibility = View.GONE
+                    binding.tvResult.text = "Error"
                     Toast.makeText(this, "Upload Failed: ${result.error}", Toast.LENGTH_SHORT)
                         .show()
                 }

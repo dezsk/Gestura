@@ -8,11 +8,6 @@
     tools:context=".ui.onBoarding.OnBoarding2Activity"
     android:background="@color/gray">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/shadow_gradient" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp_onboarding"
         android:layout_width="match_parent"
@@ -29,17 +24,6 @@
         app:tabBackground="@drawable/tab_selector"
         app:layout_constraintBottom_toBottomOf="@id/view_next"/>
 
-    <TextView
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/tv_skip"
-        android:text="Skip"
-        android:fontFamily="@font/inter"
-        android:textSize="30sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp"/>
 
     <LinearLayout
         android:id="@+id/view_next"

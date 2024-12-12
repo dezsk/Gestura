@@ -79,4 +79,7 @@ dependencies {
 
     implementation (libs.ffmpeg.kit.full)
 
+    implementation ("com.iceteck.silicompressorr:silicompressor:2.2.4")
+
+
 }

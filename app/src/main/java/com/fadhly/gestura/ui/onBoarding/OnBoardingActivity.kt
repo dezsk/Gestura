@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivityOnBoardingBinding
-import com.fadhly.gestura.ui.MainActivity
 import com.fadhly.gestura.ui.Page
 import com.fadhly.gestura.ui.home.HomeActivity
 import com.fadhly.gestura.ui.signin.SignInActivity
@@ -64,7 +63,7 @@ class OnBoardingActivity : AppCompatActivity() {
         val pagerList = arrayListOf(
             Page(
                 "Sign Language Interpreter Applicaion",
-                "An Application for learning and translating sign language. Helps to raise awareness of sign language knowledge for communicating with deaf individuals.",
+                "An Application for learning and translating sign language. Helps to promote and share sign language knowledge for communicating with deaf individuals, reducing communication barriers and raising equality.",
                 R.drawable.boy
             ),
             Page(

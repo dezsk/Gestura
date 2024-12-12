@@ -107,7 +107,23 @@
         <item name="android:textColor">@color/white_A700</item>
         <item name="android:fontFamily">@font/inter</item>
         <item name="android:textFontWeight" tools:targetApi="p">600</item>
-        <item name="android:background">@drawable/rectangle_bg_teal_300_radius_24</item>
+        <item name="android:background">@drawable/rectangle_bg_red_300_radius_24</item>
+    </style>
+
+    <style name="btnSolidRoundedGrey">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+        <item name="android:background">@drawable/rectangle_bg_grey_300_radius_24</item>
+    </style>
+
+    <style name="btnSolidRoundedRed">
+        <item name="android:textSize">@dimen/_16pxh</item>
+        <item name="android:textColor">@color/white_A700</item>
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+        <item name="android:background">@color/dark_red</item>
     </style>
 
     <style name="groupStylewhite_A700_05">

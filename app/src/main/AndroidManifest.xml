@@ -60,9 +60,6 @@
             android:name=".ui.signin.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>

@@ -59,28 +59,22 @@ class OnBoarding2Activity : AppCompatActivity() {
             Page(
                 "Jangan melakukan gesture dengan cepat",
                 "",
-                R.drawable.boy
+                R.drawable.sign_boy
             ),
             Page(
                 "Lakukan gesture dengan jelas",
                 "",
-                R.drawable.girl
+                R.drawable.three_boys
             ),
             Page(
                 "Gunakan pencahayaan yang terang",
                 "",
-                R.drawable.two_boys
-            ),
-            Page(
-                "Sign Language Interpreter Applicaion",
-                "Test your knowledge by recording yourself using sign language and translating it to your known language",
-                R.drawable.children_hand
+                R.drawable.smiling_boy
             )
-
         )
 
         binding.vpOnboarding.apply {
-            adapter = OnBoardingAdapter(this@OnBoarding2Activity, pagerList)
+            adapter = OnBoardingAdapter2(this@OnBoarding2Activity, pagerList)
             registerOnPageChangeCallback(onBoardingPageChangeCallback)
             (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
@@ -94,9 +88,7 @@ class OnBoarding2Activity : AppCompatActivity() {
                 homeScreenIntent()
             }
         }
-        binding.tvSkip.setOnClickListener {
-            homeScreenIntent()
-        }
+
         binding.viewBack.setOnClickListener {
             if (binding.vpOnboarding.currentItem > 0) {
                 binding.vpOnboarding.currentItem -= 1
