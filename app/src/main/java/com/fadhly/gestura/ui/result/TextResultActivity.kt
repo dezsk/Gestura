@@ -22,7 +22,6 @@ import com.fadhly.gestura.data.Result
 import com.fadhly.gestura.databinding.ActivityTextResultBinding
 import com.fadhly.gestura.ui.ViewModelFactory
 import com.fadhly.gestura.ui.home.HomeActivity
-import com.fadhly.gestura.ui.signToText.MainViewModel
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -95,6 +94,12 @@ class TextResultActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupAction() {
+        binding.btnAgain.setOnClickListener {
+            recordVideo()
+        }
+    }
+
     private fun recordVideo() {
         videoFile = createVideoFile()
         val videoUri: Uri = FileProvider.getUriForFile(
@@ -144,14 +149,16 @@ class TextResultActivity : AppCompatActivity() {
     private fun setupObservers() {
         viewModel.uploadResult.observe(this) { result ->
             when (result) {
-                is Result.Loading -> binding.tvResult.text = "Translating..."
+                is Result.Loading -> binding.progressBar.visibility = View.VISIBLE
                 is Result.Success -> {
                     val translatedText = result.data.hasilPrediksi
-                    navigateToResultActivity(translatedText)
+                    binding.progressBar.visibility = View.GONE
+
+                    binding.tvResult.text = translatedText
                 }
 
                 is Result.Error -> {
-                    binding.tvResult.text = "An error ocurred: ${result.error}"
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(this, "Upload Failed: ${result.error}", Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -159,16 +166,4 @@ class TextResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToResultActivity(translatedText: String?) {
-        val intent = Intent(this, TextResultActivity::class.java).apply {
-            putExtra("TRANSLATED_TEXT", translatedText)
-        }
-        startActivity(intent)
-    }
-
-    private fun setupAction() {
-        binding.btnAgain.setOnClickListener {
-            recordVideo()
-        }
-    }
 }

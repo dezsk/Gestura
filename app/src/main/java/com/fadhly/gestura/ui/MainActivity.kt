@@ -18,7 +18,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.fadhly.gestura.ui.signToText.MainViewModel
+import com.fadhly.gestura.ui.result.MainViewModel
 import com.fadhly.gestura.R
 import com.fadhly.gestura.data.Result
 import java.io.File

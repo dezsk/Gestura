@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fadhly.gestura.data.Injection
 import com.fadhly.gestura.data.TranslateRepository
-import com.fadhly.gestura.ui.signToText.MainViewModel
+import com.fadhly.gestura.ui.result.MainViewModel
 import com.fadhly.gestura.ui.textToSign.TextToSignViewModel
 
 class ViewModelFactory(private val repository: TranslateRepository) : ViewModelProvider.NewInstanceFactory() {

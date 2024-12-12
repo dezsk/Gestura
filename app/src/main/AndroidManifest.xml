@@ -25,6 +25,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.onBoarding.OnBoarding2Activity"
+            android:exported="false" />
+        <activity
             android:name=".ui.onBoarding.OnBoardingActivity"
             android:exported="false" />
         <activity
@@ -54,31 +57,10 @@
             android:name=".ui.welcome.WelcomeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.signToText.SignToText2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.signToText.SignToText1Activity"
-            android:exported="false" />
-        <activity
             android:name=".ui.signin.SignInActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.onBoard.OnBoarding4Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.onBoard.OnBoarding3Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.onBoard.OnBoarding2Activity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.onBoard.OnBoarding1Activity"
-            android:exported="false" />
-        <activity
             android:name=".ui.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.signToText.SignToText3Activity"
             android:exported="false" />
         <activity
             android:name=".ui.splash.SplashActivity"

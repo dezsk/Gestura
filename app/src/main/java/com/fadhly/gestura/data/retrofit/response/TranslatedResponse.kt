@@ -10,6 +10,6 @@ data class TranslatedResponse(
 	@field:SerializedName("hasil_prediksi")
 	val hasilPrediksi: String? = null,
 
-	@field:SerializedName("filename")
-	val filename1: String? = null
+	@field:SerializedName("message")
+	val message: String? = null
 )

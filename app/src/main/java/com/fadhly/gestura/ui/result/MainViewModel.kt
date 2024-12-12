@@ -1,4 +1,4 @@
-package com.fadhly.gestura.ui.signToText
+package com.fadhly.gestura.ui.result
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,7 +6,6 @@ import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
 import com.fadhly.gestura.data.Result
 import com.fadhly.gestura.data.TranslateRepository
-import com.fadhly.gestura.data.retrofit.response.TranslateResponse
 import com.fadhly.gestura.data.retrofit.response.TranslatedResponse
 import java.io.File
 import java.text.SimpleDateFormat

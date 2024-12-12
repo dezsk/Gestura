@@ -5,79 +5,73 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/girl"
-    tools:context=".ui.onBoard.OnBoarding2Activity">
+    tools:context=".ui.onBoarding.OnBoarding2Activity"
+    android:background="@color/gray">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/shadow_gradient" />
 
-    <TextView
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp_onboarding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="210dp"
-        android:fontFamily="@font/intersemibold"
-        android:paddingHorizontal="40dp"
-        android:text="Sign Language Dictionary"
-        android:textColor="@color/white_A700"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:id="@+id/tab_layout"
+        android:background="@android:color/transparent"
+        app:tabGravity="center"
+        app:tabIndicatorHeight="0dp"
+        app:tabRippleColor="@null"
+        app:tabBackground="@drawable/tab_selector"
+        app:layout_constraintBottom_toBottomOf="@id/view_next"/>
 
     <TextView
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="350dp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
-        android:letterSpacing="0.1"
-        android:lineSpacingExtra="3dp"
+        android:id="@+id/tv_skip"
+        android:text="Skip"
         android:fontFamily="@font/inter"
-        android:paddingHorizontal="40dp"
-        android:textSize="15sp"
-        android:text="Learn and step up your sign language knowledge with a list of sign language vocabularies."
-        android:textColor="@color/white_A700"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/view_next"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-
-        <ImageView
-            android:id="@+id/pt_1"
-            android:layout_width="10dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:src="@drawable/circle"
-            app:tint="@color/white" />
-
-        <ImageView
-            android:layout_width="10dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:src="@drawable/filled_circle"
-            app:tint="@color/teal_300" />
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter"
+            android:text="Next"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
 
         <ImageView
-            android:id="@+id/pt_3"
-            android:layout_width="10dp"
+            android:id="@+id/arrow_next"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginHorizontal="10dp"
-            android:src="@drawable/circle"
-            app:tint="@color/white" />
-
-        <ImageView
-            android:id="@+id/pt_4"
-            android:layout_width="10dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:src="@drawable/circle"
-            app:tint="@color/white" />
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/arrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/white_A700" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/view_back"
@@ -109,37 +103,6 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
 
+
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/view_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/inter"
-            android:text="Next"
-            android:textColor="@color/white"
-            android:textSize="25sp" />
-
-        <ImageView
-            android:id="@+id/arrow_next"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="10dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:tint="@color/white_A700" />
-    </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

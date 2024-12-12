@@ -10,35 +10,30 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.fadhly.gestura.R
-import com.fadhly.gestura.databinding.ActivityOnBoardingBinding
-import com.fadhly.gestura.ui.MainActivity
+import com.fadhly.gestura.databinding.ActivityOnBoarding2Binding
 import com.fadhly.gestura.ui.Page
-import com.fadhly.gestura.ui.home.HomeActivity
+import com.fadhly.gestura.ui.result.TextResultActivity
 import com.fadhly.gestura.ui.signin.SignInActivity
 import com.google.android.material.tabs.TabLayoutMediator
 
-class OnBoardingActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityOnBoardingBinding
-
+class OnBoarding2Activity : AppCompatActivity() {
+    private lateinit var binding: ActivityOnBoarding2Binding
     private val onBoardingPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
             super.onPageSelected(position)
-            when(position){
+            when (position) {
                 0 -> {
                     binding.viewBack.visibility = View.GONE
                     binding.viewNext.visibility = View.VISIBLE
                     binding.tvNext.text = "Next"
                 }
+
                 1 -> {
                     binding.viewBack.visibility = View.VISIBLE
                     binding.viewNext.visibility = View.VISIBLE
                     binding.tvNext.text = "Next"
                 }
-                2 -> {
-                    binding.viewBack.visibility = View.VISIBLE
-                    binding.viewNext.visibility = View.VISIBLE
-                    binding.tvNext.text = "Next"
-                }
+
                 else -> {
                     binding.viewBack.visibility = View.VISIBLE
                     binding.viewNext.visibility = View.VISIBLE
@@ -49,10 +44,9 @@ class OnBoardingActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityOnBoardingBinding.inflate(layoutInflater)
+        binding = ActivityOnBoarding2Binding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -60,21 +54,20 @@ class OnBoardingActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         val pagerList = arrayListOf(
             Page(
-                "Sign Language Interpreter Applicaion",
-                "An Application for learning and translating sign language. Helps to raise awareness of sign language knowledge for communicating with deaf individuals.",
+                "Jangan melakukan gesture dengan cepat",
+                "",
                 R.drawable.boy
             ),
             Page(
-                "Sign Language Interpreter Applicaion",
-                "Learn and step up your sign language knowledge with a list of sign language vocabularies.",
+                "Lakukan gesture dengan jelas",
+                "",
                 R.drawable.girl
             ),
             Page(
-                "Sign Language Interpreter Applicaion",
-                "Type a word or sentence, then get the sign language interpretation in order.",
+                "Gunakan pencahayaan yang terang",
+                "",
                 R.drawable.two_boys
             ),
             Page(
@@ -86,7 +79,7 @@ class OnBoardingActivity : AppCompatActivity() {
         )
 
         binding.vpOnboarding.apply {
-            adapter = OnBoardingAdapter(this@OnBoardingActivity, pagerList)
+            adapter = OnBoardingAdapter(this@OnBoarding2Activity, pagerList)
             registerOnPageChangeCallback(onBoardingPageChangeCallback)
             (getChildAt(0) as RecyclerView).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
@@ -114,8 +107,9 @@ class OnBoardingActivity : AppCompatActivity() {
         binding.vpOnboarding.unregisterOnPageChangeCallback(onBoardingPageChangeCallback)
         super.onDestroy()
     }
+
     private fun homeScreenIntent() {
-        val homeIntent = Intent(this, SignInActivity::class.java)
+        val homeIntent = Intent(this, TextResultActivity::class.java)
         startActivity(homeIntent)
     }
 }

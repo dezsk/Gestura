@@ -1,6 +1,8 @@
 package com.fadhly.gestura.ui.textToSign
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -19,6 +21,7 @@ class TextToSignActivity : AppCompatActivity() {
     private val viewModel by viewModels<TextToSignViewModel> {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTextToSignBinding.inflate(layoutInflater)
@@ -30,26 +33,43 @@ class TextToSignActivity : AppCompatActivity() {
             insets
         }
         binding.btnTranslate.setOnClickListener {
-            val text = binding.tilType.editText?.text.toString()
-            viewModel.uploadText(text)
+            val text = binding.tilType.editText?.text.toString().trim()
+
+            if (text.isEmpty()) {
+                // Set an error message on the TextInputLayout or EditText
+                binding.tilType.error = "Text cannot be empty"
+            } else {
+                // Clear any previous error and proceed
+                binding.tilType.error = null
+                viewModel.uploadText(text)
+            }
         }
 
-        viewModel.imageResponse.observe(this){
+        viewModel.videoResponse.observe(this) {
             when (it) {
                 is Result.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
 
                 is Result.Error -> {
+                    binding.progressBar.visibility = View.VISIBLE
                     Toast.makeText(this, "Upload Failed: ${it.error}", Toast.LENGTH_SHORT)
                         .show()
+                    Log.e("TextToSignActivity", "Error: ${it.error}")
                 }
+
                 is Result.Success -> {
-                    Glide
-                        .with(this)
-                        .load(it.data.photoUrl)
-                        .fitCenter()
-                        .into(binding.ivSign)
+                    val videoFile = it.data
+                    val uri = Uri.fromFile(videoFile)
+                    binding.vvSign.apply {
+                        setVideoURI(uri)
+                        setOnPreparedListener {
+                            binding.progressBar.visibility = View.GONE
+                            start()
+                        }
+                        setOnCompletionListener {
+                        }
+                    }
                 }
             }
         }

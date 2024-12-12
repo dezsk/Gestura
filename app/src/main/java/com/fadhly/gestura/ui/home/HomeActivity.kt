@@ -8,10 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
-import com.fadhly.gestura.ui.signToText.SignToText1Activity
 import com.fadhly.gestura.databinding.ActivityHomeBinding
 import com.fadhly.gestura.ui.dictionary.DictionaryActivity
+import com.fadhly.gestura.ui.onBoarding.OnBoarding2Activity
 import com.fadhly.gestura.ui.signin.SignInActivity
+import com.fadhly.gestura.ui.textToSign.TextToSignActivity
 import com.fadhly.gestura.ui.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -29,14 +30,16 @@ class HomeActivity : AppCompatActivity() {
             insets
         }
         binding.camera.setOnClickListener {
-            val intent = Intent(this, SignToText1Activity::class.java)
+            val intent = Intent(this, OnBoarding2Activity::class.java)
             startActivity(intent)
-            finish()
         }
         binding.tvDictionary.setOnClickListener {
             val intent = Intent(this, DictionaryActivity::class.java)
             startActivity(intent)
-            finish()
+        }
+        binding.tvText.setOnClickListener {
+            val intent = Intent(this, TextToSignActivity::class.java)
+            startActivity(intent)
         }
 
         auth = FirebaseAuth.getInstance()

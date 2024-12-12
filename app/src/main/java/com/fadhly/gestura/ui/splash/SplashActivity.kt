@@ -2,8 +2,11 @@ package com.fadhly.gestura.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
@@ -18,6 +21,7 @@ class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(R.layout.activity_splash)
@@ -27,16 +31,19 @@ class SplashActivity : AppCompatActivity() {
             insets
         }
 
-        // Check user login status
-        val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser != null) {
-            // Navigate to HomeActivity
-            startActivity(Intent(this, OnBoardingActivity::class.java))
-        } else {
-            // Navigate to WelcomeActivity
-            startActivity(Intent(this, WelcomeActivity::class.java))
-        }
-        finish() // Close SplashActivity
+        Handler(Looper.getMainLooper()).postDelayed({
+            // Check user login status
+            val auth = FirebaseAuth.getInstance()
+            if (auth.currentUser != null) {
+                // Navigate to HomeActivity
+                startActivity(Intent(this, OnBoardingActivity::class.java))
+            } else {
+                // Navigate to WelcomeActivity
+                startActivity(Intent(this, WelcomeActivity::class.java))
+            }
+            finish() // Close SplashActivity
+
+        }, 2000)
     }
 
 

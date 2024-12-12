@@ -1,5 +1,6 @@
 package com.fadhly.gestura.data
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
@@ -7,13 +8,15 @@ import com.fadhly.gestura.data.retrofit.response.TranslateResponse
 import com.fadhly.gestura.data.retrofit.ApiService
 import com.fadhly.gestura.data.retrofit.response.ImageResponse
 import com.fadhly.gestura.data.retrofit.response.TranslatedResponse
+import com.fadhly.gestura.data.retrofit.response.VideoResponse
 import kotlinx.coroutines.Dispatchers
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
+import java.io.FileOutputStream
 
-class TranslateRepository(private val apiService: ApiService) {
+class TranslateRepository(private val apiService: ApiService, private val appContext: Context) {
 
     private val TAG = "VideoRepository"
 
@@ -34,13 +37,19 @@ class TranslateRepository(private val apiService: ApiService) {
             }
         }
 
-    fun uploadText(text: String): LiveData<Result<ImageResponse>> =
+    fun uploadText(text: String): LiveData<Result<File>> =
         liveData(Dispatchers.IO) {
             emit(Result.Loading)
             try {
                 val response = apiService.uploadText(text)
 
-                emit(Result.Success(response))
+                // Save file locally
+                val file = File(appContext.cacheDir, "translated_video.mp4")
+                FileOutputStream(file).use { output ->
+                    response.byteStream().copyTo(output)
+                }
+
+                emit(Result.Success(file))
             } catch (e: Exception) {
                 emit(Result.Error(e.message.toString()))
             }
@@ -51,9 +60,10 @@ class TranslateRepository(private val apiService: ApiService) {
         private var instance: TranslateRepository? = null
         fun getInstance(
             apiService: ApiService,
+            appContext: Context
         ): TranslateRepository =
             instance ?: synchronized(this) {
-                instance ?: TranslateRepository(apiService)
+                instance ?: TranslateRepository(apiService, appContext)
             }.also { instance = it }
     }
 }

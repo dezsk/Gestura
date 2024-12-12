@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivityWelcomeBinding
-import com.fadhly.gestura.ui.onBoard.OnBoarding1Activity
+import com.fadhly.gestura.ui.onBoarding.OnBoardingActivity
 
 class WelcomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityWelcomeBinding
@@ -24,7 +24,7 @@ class WelcomeActivity : AppCompatActivity() {
         }
 
         binding.btnStart.setOnClickListener {
-            startActivity(Intent(this, OnBoarding1Activity::class.java))
+            startActivity(Intent(this, OnBoardingActivity::class.java))
         }
     }
 }
