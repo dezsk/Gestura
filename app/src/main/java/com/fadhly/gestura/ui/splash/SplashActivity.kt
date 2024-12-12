@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.fadhly.gestura.R
 import com.fadhly.gestura.databinding.ActivitySplashBinding
 import com.fadhly.gestura.ui.home.HomeActivity
+import com.fadhly.gestura.ui.onBoarding.OnBoardingActivity
 import com.fadhly.gestura.ui.result.TextResultActivity
 import com.fadhly.gestura.ui.welcome.WelcomeActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -30,7 +31,7 @@ class SplashActivity : AppCompatActivity() {
         val auth = FirebaseAuth.getInstance()
         if (auth.currentUser != null) {
             // Navigate to HomeActivity
-            startActivity(Intent(this, TextResultActivity::class.java))
+            startActivity(Intent(this, OnBoardingActivity::class.java))
         } else {
             // Navigate to WelcomeActivity
             startActivity(Intent(this, WelcomeActivity::class.java))
